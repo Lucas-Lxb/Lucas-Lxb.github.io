@@ -1,19 +1,19 @@
-/* 警告内容 - 红色竖线 */
+/* 警告内容 - 深红色竖线，柔和背景 */
 blockquote.warning {
-    border-left: 5px solid #e74c3c; /* 深红色左边框 */
-    background-color: #2e3440; /* 深色背景 */
+    border-left: 5px solid #c0392b; /* 深红色竖线 */
+    background-color: #f1ebff; /* 柔和的浅红色背景 */
     padding: 15px;
-    color: #eceff4; /* 浅色文本 */
-    margin: 1.5em 0; /* 增加上下间距 */
-    font-size: 16px; /* 适当增大字体 */
+    color: #ecf0f1; /* 浅色文本 */
+    margin: 1.5em 0;
+    font-size: 16px;
 }
 
-/* 命令提示 - 绿色竖线 */
+/* 命令提示 - 浅绿色竖线，柔和背景 */
 blockquote.command {
-    border-left: 5px solid #88c0d0; /* 浅绿色左边框 */
-    background-color: #3b4252; /* 稍微浅一点的深色背景 */
+    border-left: 5px solid #27ae60; /* 深绿色竖线 */
+    background-color: #e8f5e9; /* 柔和的浅绿色背景 */
     padding: 15px;
-    color: #d8dee9; /* 浅色文本 */
+    color: #ecf0f1; /* 浅色文本 */
     margin: 1.5em 0;
     font-size: 16px;
 }
@@ -22,4 +22,3 @@ blockquote.command {
 blockquote {
     border-radius: 4px; /* 使块的角稍微圆润一些 */
 }
-
