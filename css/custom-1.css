@@ -1,0 +1,12 @@
+/* 注入 CSS 文件修改 CSS 变量使用示例 */
+
+:root {
+    /*全局默认字体：楷体*/
+    --base-font-family: STKaiti;
+
+    /*Header 头部的 Title 字体：新罗马*/
+    --header-title-font-family: 'Times New Roman';
+
+    /**/
+    
+ }
