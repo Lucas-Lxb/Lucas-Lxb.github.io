@@ -11,8 +11,8 @@ blockquote.warning {
 
 /* 命令框样式 */
 blockquote.command {
-    background-color: rgb(23, 42, 30); /* 绿色背景 */
-    border-left: 5px solid rgb(23, 42, 30); /* 绿色左侧竖线 */
+    background-color: rgb(143, 206, 166); /* 绿色背景 */
+    border-left: 5px solid rgb(34, 223, 103); /* 绿色左侧竖线 */
     color: #0b0909; /* 白色文字 */
     padding: 20px; /* 内边距 */
     margin: 20px 0; /* 外边距 */
@@ -21,8 +21,7 @@ blockquote.command {
 }
 
 blockquote.command code {
-    background-color: #272822; /* 深色代码背景 */
-    color: #66d9ef; /* 浅蓝色代码文字 */
+    background-color: #434242; /* 深色代码背景 */
     padding: 5px;
     border-radius: 3px;
     display: block;
