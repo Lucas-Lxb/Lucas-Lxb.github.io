@@ -1,7 +1,7 @@
 /* 红色竖线，警告内容 */
 blockquote.warning {
     border-left: 5px solid red;
-    background-color: rgba(44, 237, 14, 0.967);
+    background-color: hsla(0, 80%, 60%, 0.967);
     padding: 10px;
     color: #333;
 }
@@ -9,7 +9,7 @@ blockquote.warning {
 /* 绿色竖线，命令提示 */
 blockquote.command {
     border-left: 5px solid green;
-    background-color: #f8f8f8;
+    background-color: #6fc365;
     padding: 10px;
     color: #333;
 }
