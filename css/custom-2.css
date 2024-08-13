@@ -1,24 +1,49 @@
-/* 警告内容 - 深红色竖线，柔和背景 */
-blockquote.warning {
-    border-left: 5px solid #c0392b; /* 深红色竖线 */
-    background-color: #f1ebff; /* 柔和的浅红色背景 */
-    padding: 15px;
-    color: #ecf0f1; /* 浅色文本 */
-    margin: 1.5em 0;
-    font-size: 16px;
+/* 通用容器样式 */
+.custom-container {
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
 }
 
-/* 命令提示 - 浅绿色竖线，柔和背景 */
-blockquote.command {
-    border-left: 5px solid #27ae60; /* 深绿色竖线 */
-    background-color: #e8f5e9; /* 柔和的浅绿色背景 */
-    padding: 15px;
-    color: #ecf0f1; /* 浅色文本 */
-    margin: 1.5em 0;
-    font-size: 16px;
+/* 红色警告框 */
+.red-warning {
+    background-color: #2a2a2e; /* 深色背景 */
+    color: white;
+    border-left: 5px solid #e74c3c; /* 红色边框 */
+    padding: 20px;
 }
 
-/* 通用的引用块样式 */
-blockquote {
-    border-radius: 4px; /* 使块的角稍微圆润一些 */
+.red-warning h2 {
+    color: #e74c3c; /* 红色标题 */
+}
+
+.red-warning p {
+    margin: 10px 0;
+}
+
+.red-warning li {
+    color: #f1c40f; /* 黄色列表项文本 */
+    margin-bottom: 10px;
+}
+
+/* 绿色说明框 */
+.green-instruction {
+    background-color: #162312; /* 深绿色背景 */
+    color: white;
+    border-left: 5px solid #27ae60; /* 绿色边框 */
+    padding: 20px;
+}
+
+.green-instruction h3 {
+    color: #2ecc71; /* 浅绿色标题 */
+}
+
+.green-instruction code {
+    background-color: #272822;
+    color: #66d9ef; /* 浅蓝色代码文本 */
+    padding: 5px;
+    border-radius: 3px;
+    display: block;
+    margin: 10px 0;
 }
