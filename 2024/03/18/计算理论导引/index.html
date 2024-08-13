@@ -9,7 +9,7 @@
     
     <title>
         
-            树莓派opencv-python踩坑记录 |
+            计算理论导引 |
         
         Lucas-Lxb&#39;s Blog
     </title>
@@ -255,7 +255,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        树莓派opencv-python踩坑记录
+                        计算理论导引
                     </div>
                 
 
@@ -281,12 +281,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-star"></i>&nbsp;
-                <span class="datetime">2024-04-04 13:13:07</span>
+                <span class="datetime">2024-03-18 16:09:40</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-arrows-rotate"></i>&nbsp;
-                <span class="datetime" data-updated="Tue Aug 13 2024 10:10:37 GMT+0800">2024-08-13 10:10:37</span>
+                <span class="datetime" data-updated="Sun Aug 04 2024 12:14:01 GMT+0800">2024-08-04 12:14:01</span>
             </span>
         
 
@@ -294,7 +294,7 @@
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/categories/%E6%8A%98%E8%85%BELinux/">折腾Linux</a></li>
+                            <li class="category-item"><a href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/">理论知识</a></li>
                         
                     
                 </ul>
@@ -305,7 +305,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/">计算理论</a></li>
                         
                     
                 </ul>
@@ -315,12 +315,12 @@
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>943 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>809 字</span>
             </span>
         
         
             <span class="meta-info-item post-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>3 分钟</span>
             </span>
         
         
@@ -338,38 +338,57 @@
                     
 
                     
-                         <h1 id="1-’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突"><a href="#1-’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突" class="headerlink" title="1.’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突"></a>1.’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突</h1><p>修改为：安装版本为 python3.8 与 Opencv-python4.1.2.</p>
-<h1 id="2-使用pip安装软件包时出现SSL验证失败问题：pip版本在20-3以上时会出现此错误"><a href="#2-使用pip安装软件包时出现SSL验证失败问题：pip版本在20-3以上时会出现此错误" class="headerlink" title="2.使用pip安装软件包时出现SSL验证失败问题：pip版本在20.3以上时会出现此错误"></a>2.使用pip安装软件包时出现SSL验证失败问题：pip版本在20.3以上时会出现此错误</h1><p>修改：</p>
-<p>法一:下载pip版本为20.2.4</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install pip==20.2.4 -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</span><br><span class="line">python -m pip install pip==20.2.4 -i http://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com</span><br></pre></td></tr></table></figure>
-
-<p>法二：修改pip源</p>
-<p>修改为（以下任意一项） ———————–由于网速限制可能要多试几遍（我试了很多遍…….）</p>
-<ul>
-<li><pre><code>http://mirrors.aliyun.com/pypi/simple/
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  http://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
-</code></pre>
+                         <h1 id="第一部分自动机与语言"><a href="#第一部分自动机与语言" class="headerlink" title="第一部分	自动机与语言"></a>第一部分	自动机与语言</h1><hr>
+<h2 id="第一章正则语言"><a href="#第一章正则语言" class="headerlink" title="第一章	正则语言"></a>第一章	正则语言</h2><h3 id="1-1有穷自动机"><a href="#1-1有穷自动机" class="headerlink" title="1.1有穷自动机"></a>1.1有穷自动机</h3><h4 id="1-1-1-有穷自动机的形式化定义"><a href="#1-1-1-有穷自动机的形式化定义" class="headerlink" title="1.1.1 	有穷自动机的形式化定义"></a>1.1.1 	有穷自动机的形式化定义</h4><p>有穷自动机是一个5元组（Q，Σ，δ，q0，F）</p>
+<ol>
+<li><p>Q是一个有穷集合，称为状态集</p>
 </li>
+<li><p>Σ是一个有穷集合，称为字母表</p>
+</li>
+<li><p>δ：Q×Σ-&gt;Q，是转移函数</p>
+</li>
+<li><p>q0∈Q，是起始状态</p>
+</li>
+<li><p>F含于Q，是接受状态集</p>
+</li>
+</ol>
+<h4 id="1-1-2计算的形式化定义"><a href="#1-1-2计算的形式化定义" class="headerlink" title="1.1.2	计算的形式化定义"></a>1.1.2	计算的形式化定义</h4><p>设M &#x3D; （Q，Σ，δ，q0，F）是一台有穷自动机，W &#x3D; W1W2W3…Wn是一个字符串并且其中任意wi是字母表Σ的成员。如果存在Q中的状态序列r0,r1,…,rn,满足下述条件：</p>
+<ol>
+<li>r0 &#x3D; q0															机器从开始状态开始</li>
+<li>δ（ri,W(i + 1)） &#x3D; r(i + 1),i &#x3D; 0,…,n - 1            机器按照转移函数从一个状态到一个状态</li>
+<li>rn∈F                                                                如果机器结束在接受状态，则接受它的输入</li>
+</ol>
+<p>则M接受串W</p>
+<p><strong><u>如果A &#x3D; {W | M接受W}，则称M识别语言A</u></strong></p>
+<p>如果一个语言被一台有穷自动机识别，则称它为正则语言。</p>
+<h4 id="1-1-3设计有穷自动机"><a href="#1-1-3设计有穷自动机" class="headerlink" title="1.1.3	设计有穷自动机"></a>1.1.3	设计有穷自动机</h4><ol>
+<li>给每一种可能的字符串信息设计一个状态</li>
+<li>通过观察如何根据读到的符号从一种可能性到另一种可能性来设计转移</li>
+<li>接下来，把起始状态设置为对应于到现在为止还没有看到与任何符号（空串ε）相关联的可能性的状态</li>
+</ol>
+<h4 id="1-1-4正则运算"><a href="#1-1-4正则运算" class="headerlink" title="1.1.4	正则运算"></a>1.1.4	正则运算</h4><p>设A和B是两个语言，定义正则运算并、连接和星号如下：</p>
+<ul>
+<li>并：A∪B &#x3D; {x | x∈A或x∈B}</li>
+<li>连接：A▪B &#x3D; {xy | x∈A且y∈B}</li>
+<li>星号：A* &#x3D; {x1x2x3…xk | k &gt;&#x3D; 0 且每一个xi∈A}          ——&gt;一元运算</li>
 </ul>
-<p>注：树莓派所安装操作系统为DeBian 11.</p>
-<h1 id="3-apt-get修改国内源（23-10-mantic版本）"><a href="#3-apt-get修改国内源（23-10-mantic版本）" class="headerlink" title="3.apt-get修改国内源（23.10 mantic版本）"></a>3.apt-get修改国内源（23.10 mantic版本）</h1><ol>
-<li></li>
+<p>一般来说，如果把某种运算应用于一个对象集合的成员得到的对象仍在这个集合中，则称这个对象集合在该运算下封闭。</p>
+<h3 id="1-2非确定性"><a href="#1-2非确定性" class="headerlink" title="1.2	非确定性"></a>1.2	非确定性</h3><p>非确定性是确定性的推广-&gt; 因此每一台确定性有穷自动机自动地是一台非确定性有穷自动机</p>
+<p>NFA与DFA的不同点：</p>
+<ol>
+<li>在NFA中，一个状态对应于字母表中的每一个符号可能有0个、1个或多个射出的箭头</li>
+<li>在DFA上，转移箭头上的标号是取自字母表中的符号；NFA中则可以取自ε</li>
+<li>一般来说，NFA的箭头可以标记字母表中的符号或ε。从一个状态可能射出0个、1个或多个带有标号ε的箭头</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://security.ubuntu.com/ubuntu/ mantic-security main restricted universe multiverse</span><br><span class="line"># deb-src http://security.ubuntu.com/ubuntu/ mantic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-proposed main restricted universe multiverse</span><br><span class="line"># # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>无法获得锁：&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock-fronted</li>
+<p>可以把非确定性看做是若干独立的“过程”或“线程”，即能同时运行的一类**<u>并行运算</u>**，如果这些子过程至少有一个接受，那么整个计算接受。</p>
+<h4 id="1-2-1-非确定性有穷自动机的形式化定义"><a href="#1-2-1-非确定性有穷自动机的形式化定义" class="headerlink" title="1.2.1 	非确定性有穷自动机的形式化定义"></a>1.2.1 	非确定性有穷自动机的形式化定义</h4><p>非确定性有穷自动机是一个5元组（Q，Σ，δ，q0，F）</p>
+<ol>
+<li>Q是一个有穷集合，称为状态集</li>
+<li>Σ是一个有穷集合，称为字母表</li>
+<li>δ：Q×（Σ∪{ε}）-&gt;（Q的幂集），是转移函数</li>
+<li>q0∈Q，是起始状态</li>
 </ol>
-<p>解决方案:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/dpkg/lock-frontend</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br></pre></td></tr></table></figure>
-
-<p>都运行一遍，具体也不知道哪条起了作用。</p>
-<p>出现以下错误：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Error:Could <span class="keyword">not</span> build wheels <span class="keyword">for</span> opencv-python ,which <span class="keyword">is</span> required to install pyproject.toml-based projects</span><br><span class="line">------&gt;安装poetry</span><br><span class="line">------&gt;运行poetry init命令  <span class="comment">#获得pyproject.toml文件</span></span><br><span class="line">------&gt;运行poetry install命令 <span class="comment">#得到项目内文件的依赖</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Poetry 是一个用于管理 Python 项目依赖、虚拟环境和打包发布的工具。它通过一个名为 `pyproject.toml` 的配置文件来管理项目。使用 Poetry，你可以方便地定义项目的依赖关系、版本约束和脚本命令，并且它提供了一组命令来执行各种常见任务，例如安装依赖、创建虚拟环境、构建项目等。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Poetry 是一个用于管理 Python 项目依赖、虚拟环境和打包发布的工具。它通过一个名为 pyproject.toml 的配置文件来管理项目。使用 Poetry，你可以方便地定义项目的依赖关系、版本约束和脚本命令，并且它提供了一组命令来执行各种常见任务，例如安装依赖、创建虚拟环境、构建项目等。</span><br><span class="line"></span><br><span class="line">以下是一些常用的 Poetry 命令：</span><br><span class="line"></span><br><span class="line">poetry init 是一个用于初始化 Python 项目的命令，它使用 Poetry 工具。Poetry 是一个 Python 包管理工具和项目管理工具，它可以帮助你管理项目依赖关系和构建工具。</span><br><span class="line"></span><br><span class="line"><span class="comment">#当你运行 poetry init 命令时，它会引导你完成创建一个新的 Python 项目的过程。它会询问一些问题，如项目名称、版本、作者、项目依#赖等，并生成一个 pyproject.toml 文件，用于描述你的项目和其依赖关系。</span></span><br><span class="line"></span><br><span class="line">poetry new: 创建一个新的 Python 项目。</span><br><span class="line"></span><br><span class="line">poetry install: 安装项目的依赖。</span><br><span class="line"></span><br><span class="line">poetry add: 添加新的依赖项到项目。</span><br><span class="line"></span><br><span class="line">poetry remove: 从项目中移除依赖项。</span><br><span class="line"></span><br><span class="line">poetry update: 更新项目的依赖项。</span><br><span class="line"></span><br><span class="line">poetry run: 在虚拟环境中运行项目中定义的脚本命令。</span><br><span class="line"></span><br><span class="line">poetry shell: 进入项目的虚拟环境。</span><br><span class="line"></span><br><span class="line">poetry build: 构建项目。</span><br><span class="line"></span><br><span class="line">poetry publish: 发布项目到包索引。</span><br><span class="line"></span><br><span class="line">poetry config: 配置 Poetry 的设置。</span><br></pre></td></tr></table></figure>
-
-
+<h4 id="1-2-1NFA与DFA的等价性"><a href="#1-2-1NFA与DFA的等价性" class="headerlink" title="1.2.1	NFA与DFA的等价性"></a>1.2.1	NFA与DFA的等价性</h4>
                     
                 </div>
 
@@ -379,11 +398,11 @@
     <div class="copyright-info-content border-box">
         <div class="copyright-info-top border-box">
             <div class="copyright-post-title border-box text-ellipsis">
-                树莓派opencv-python踩坑记录
+                计算理论导引
             </div>
 
             <div class="copyright-post-link border-box text-ellipsis">
-                2024/04/04/树莓派opencv-python踩坑记录/
+                2024/03/18/计算理论导引/
             </div>
         </div>
 
@@ -399,7 +418,7 @@
                 <div class="type">
                     发布于
                 </div>
-                <div class="content">2024-04-04 13:13</div>
+                <div class="content">2024-03-18 16:09</div>
             </div>
 
 
@@ -435,7 +454,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/">计算理论</a>
                                     </li>
                                 
                             </ul>
@@ -477,35 +496,19 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/08/04/String%E7%B1%BB%E7%9A%84%E7%89%B9%E6%80%A7/"
-                                   title="String类的特性"
+                                   href="/2024/04/04/%E6%A0%91%E8%8E%93%E6%B4%BEopencv-python%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/"
+                                   title="树莓派opencv-python踩坑记录"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">String类的特性</span>
+                                        <span class="post-nav-title-item text-ellipsis">树莓派opencv-python踩坑记录</span>
                                         <span class="post-nav-item">上一篇</span>
                                     </span>
                                 </a>
                             </div>
                         
-                        
-                            <div class="next-post">
-                                <a class="next"
-                                   rel="next"
-                                   href="/2024/03/18/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%AF%BC%E5%BC%95/"
-                                   title="计算理论导引"
-                                >
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">计算理论导引</span>
-                                        <span class="post-nav-item">下一篇</span>
-                                    </span>
-                                    <span class="right arrow-icon flex-center">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </span>
-                                </a>
-                            </div>
                         
                     </div>
                 
@@ -526,7 +529,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E2%80%99xcb%E2%80%99%E6%8F%92%E4%BB%B6%E6%A3%80%E6%B5%8B%E5%BE%97%E5%88%B0%E4%BD%86%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8A%A0%E8%BD%BD%EF%BC%9A%E5%A4%A7%E6%A6%82%E7%8E%87%E6%98%AFopencv%E4%B8%8Epython%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81"><span class="nav-text">1.’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8pip%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%97%B6%E5%87%BA%E7%8E%B0SSL%E9%AA%8C%E8%AF%81%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%EF%BC%9Apip%E7%89%88%E6%9C%AC%E5%9C%A820-3%E4%BB%A5%E4%B8%8A%E6%97%B6%E4%BC%9A%E5%87%BA%E7%8E%B0%E6%AD%A4%E9%94%99%E8%AF%AF"><span class="nav-text">2.使用pip安装软件包时出现SSL验证失败问题：pip版本在20.3以上时会出现此错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-apt-get%E4%BF%AE%E6%94%B9%E5%9B%BD%E5%86%85%E6%BA%90%EF%BC%8823-10-mantic%E7%89%88%E6%9C%AC%EF%BC%89"><span class="nav-text">3.apt-get修改国内源（23.10 mantic版本）</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E8%AF%AD%E8%A8%80"><span class="nav-text">第一部分	自动机与语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80"><span class="nav-text">第一章	正则语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1有穷自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.1 	有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.2	计算的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3%E8%AE%BE%E8%AE%A1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1.3	设计有穷自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4%E6%AD%A3%E5%88%99%E8%BF%90%E7%AE%97"><span class="nav-text">1.1.4	正则运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7"><span class="nav-text">1.2	非确定性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.2.1 	非确定性有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1NFA%E4%B8%8EDFA%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-text">1.2.1	NFA与DFA的等价性</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
 
@@ -702,7 +705,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E2%80%99xcb%E2%80%99%E6%8F%92%E4%BB%B6%E6%A3%80%E6%B5%8B%E5%BE%97%E5%88%B0%E4%BD%86%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8A%A0%E8%BD%BD%EF%BC%9A%E5%A4%A7%E6%A6%82%E7%8E%87%E6%98%AFopencv%E4%B8%8Epython%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81"><span class="nav-text">1.’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8pip%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%97%B6%E5%87%BA%E7%8E%B0SSL%E9%AA%8C%E8%AF%81%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%EF%BC%9Apip%E7%89%88%E6%9C%AC%E5%9C%A820-3%E4%BB%A5%E4%B8%8A%E6%97%B6%E4%BC%9A%E5%87%BA%E7%8E%B0%E6%AD%A4%E9%94%99%E8%AF%AF"><span class="nav-text">2.使用pip安装软件包时出现SSL验证失败问题：pip版本在20.3以上时会出现此错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-apt-get%E4%BF%AE%E6%94%B9%E5%9B%BD%E5%86%85%E6%BA%90%EF%BC%8823-10-mantic%E7%89%88%E6%9C%AC%EF%BC%89"><span class="nav-text">3.apt-get修改国内源（23.10 mantic版本）</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E8%AF%AD%E8%A8%80"><span class="nav-text">第一部分	自动机与语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80"><span class="nav-text">第一章	正则语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1有穷自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.1 	有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.2	计算的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3%E8%AE%BE%E8%AE%A1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1.3	设计有穷自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4%E6%AD%A3%E5%88%99%E8%BF%90%E7%AE%97"><span class="nav-text">1.1.4	正则运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7"><span class="nav-text">1.2	非确定性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.2.1 	非确定性有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1NFA%E4%B8%8EDFA%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-text">1.2.1	NFA与DFA的等价性</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
 
