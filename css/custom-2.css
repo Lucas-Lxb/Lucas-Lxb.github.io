@@ -1,15 +1,16 @@
 /* 红色竖线，警告内容 */
 blockquote.warning {
-    border-left: 5px solid red;
-    background-color: #f8f8f8;
+    border-left: 5px solid #e74c3c; /* 深红色的竖线 */
+    background-color: #2c3e50; /* 深色背景 */
     padding: 10px;
-    color: #333;
+    color: #ecf0f1; /* 浅色字体 */
 }
 
 /* 绿色竖线，命令提示 */
 blockquote.command {
-    border-left: 5px solid green;
-    background-color: #f8f8f8;
+    border-left: 5px solid #2ecc71; /* 绿色竖线 */
+    background-color: #2c3e50; /* 深色背景 */
     padding: 10px;
-    color: #333;
+    color: #ecf0f1; /* 浅色字体 */
 }
+
