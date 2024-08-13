@@ -1,8 +1,8 @@
 /* 警告框样式 */
 blockquote.warning {
-    background-color: rgb(229, 70, 56); /* 红色背景 */
+    background-color: #610000; /* 红色背景 */
     border-left: 5px solid rgb(229, 70, 56); /* 红色左侧竖线 */
-    color: white; /* 白色文字 */
+    color: #0b0909; /* 白色文字 */
     padding: 20px; /* 内边距 */
     margin: 20px 0; /* 外边距 */
     border-radius: 5px; /* 边框圆角 */
@@ -13,7 +13,7 @@ blockquote.warning {
 blockquote.command {
     background-color: rgb(23, 42, 30); /* 绿色背景 */
     border-left: 5px solid rgb(23, 42, 30); /* 绿色左侧竖线 */
-    color: white; /* 白色文字 */
+    color: #0b0909; /* 白色文字 */
     padding: 20px; /* 内边距 */
     margin: 20px 0; /* 外边距 */
     border-radius: 5px; /* 边框圆角 */
