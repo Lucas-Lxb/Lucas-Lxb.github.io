@@ -324,7 +324,7 @@
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>809 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>800 字</span>
             </span>
         
         
@@ -347,44 +347,56 @@
                     
 
                     
-                         <h1 id="第一部分自动机与语言"><a href="#第一部分自动机与语言" class="headerlink" title="第一部分	自动机与语言"></a>第一部分	自动机与语言</h1><hr>
+                         <h1>第一部分	自动机与语言</h1>
+<hr>
 <span id="more"></span>
-
-<h2 id="第一章正则语言"><a href="#第一章正则语言" class="headerlink" title="第一章	正则语言"></a>第一章	正则语言</h2><h3 id="1-1有穷自动机"><a href="#1-1有穷自动机" class="headerlink" title="1.1有穷自动机"></a>1.1有穷自动机</h3><h4 id="1-1-1-有穷自动机的形式化定义"><a href="#1-1-1-有穷自动机的形式化定义" class="headerlink" title="1.1.1 	有穷自动机的形式化定义"></a>1.1.1 	有穷自动机的形式化定义</h4><p>有穷自动机是一个5元组（Q，Σ，δ，q0，F）</p>
+<h2 id="第一章正则语言">第一章	正则语言</h2>
+<h3 id="1-1有穷自动机">1.1有穷自动机</h3>
+<h4 id="1-1-1-有穷自动机的形式化定义">1.1.1 	有穷自动机的形式化定义</h4>
+<p>有穷自动机是一个5元组（Q，Σ，δ，q0，F）</p>
 <ol>
-<li><p>Q是一个有穷集合，称为状态集</p>
+<li>
+<p>Q是一个有穷集合，称为状态集</p>
 </li>
-<li><p>Σ是一个有穷集合，称为字母表</p>
+<li>
+<p>Σ是一个有穷集合，称为字母表</p>
 </li>
-<li><p>δ：Q×Σ-&gt;Q，是转移函数</p>
+<li>
+<p>δ：Q×Σ-&gt;Q，是转移函数</p>
 </li>
-<li><p>q0∈Q，是起始状态</p>
+<li>
+<p>q0∈Q，是起始状态</p>
 </li>
-<li><p>F含于Q，是接受状态集</p>
+<li>
+<p>F含于Q，是接受状态集</p>
 </li>
 </ol>
-<h4 id="1-1-2计算的形式化定义"><a href="#1-1-2计算的形式化定义" class="headerlink" title="1.1.2	计算的形式化定义"></a>1.1.2	计算的形式化定义</h4><p>设M &#x3D; （Q，Σ，δ，q0，F）是一台有穷自动机，W &#x3D; W1W2W3…Wn是一个字符串并且其中任意wi是字母表Σ的成员。如果存在Q中的状态序列r0,r1,…,rn,满足下述条件：</p>
+<h4 id="1-1-2计算的形式化定义">1.1.2	计算的形式化定义</h4>
+<p>设M = （Q，Σ，δ，q0，F）是一台有穷自动机，W = W1W2W3…Wn是一个字符串并且其中任意wi是字母表Σ的成员。如果存在Q中的状态序列r0,r1,…,rn,满足下述条件：</p>
 <ol>
-<li>r0 &#x3D; q0															机器从开始状态开始</li>
-<li>δ（ri,W(i + 1)） &#x3D; r(i + 1),i &#x3D; 0,…,n - 1            机器按照转移函数从一个状态到一个状态</li>
+<li>r0 = q0															机器从开始状态开始</li>
+<li>δ（ri,W(i + 1)） = r(i + 1),i = 0,…,n - 1            机器按照转移函数从一个状态到一个状态</li>
 <li>rn∈F                                                                如果机器结束在接受状态，则接受它的输入</li>
 </ol>
 <p>则M接受串W</p>
-<p><strong><u>如果A &#x3D; {W | M接受W}，则称M识别语言A</u></strong></p>
+<p><strong><u>如果A = {W | M接受W}，则称M识别语言A</u></strong></p>
 <p>如果一个语言被一台有穷自动机识别，则称它为正则语言。</p>
-<h4 id="1-1-3设计有穷自动机"><a href="#1-1-3设计有穷自动机" class="headerlink" title="1.1.3	设计有穷自动机"></a>1.1.3	设计有穷自动机</h4><ol>
+<h4 id="1-1-3设计有穷自动机">1.1.3	设计有穷自动机</h4>
+<ol>
 <li>给每一种可能的字符串信息设计一个状态</li>
 <li>通过观察如何根据读到的符号从一种可能性到另一种可能性来设计转移</li>
 <li>接下来，把起始状态设置为对应于到现在为止还没有看到与任何符号（空串ε）相关联的可能性的状态</li>
 </ol>
-<h4 id="1-1-4正则运算"><a href="#1-1-4正则运算" class="headerlink" title="1.1.4	正则运算"></a>1.1.4	正则运算</h4><p>设A和B是两个语言，定义正则运算并、连接和星号如下：</p>
+<h4 id="1-1-4正则运算">1.1.4	正则运算</h4>
+<p>设A和B是两个语言，定义正则运算并、连接和星号如下：</p>
 <ul>
-<li>并：A∪B &#x3D; {x | x∈A或x∈B}</li>
-<li>连接：A▪B &#x3D; {xy | x∈A且y∈B}</li>
-<li>星号：A* &#x3D; {x1x2x3…xk | k &gt;&#x3D; 0 且每一个xi∈A}          ——&gt;一元运算</li>
+<li>并：A∪B = {x | x∈A或x∈B}</li>
+<li>连接：A▪B = {xy | x∈A且y∈B}</li>
+<li>星号：A* = {x1x2x3…xk | k &gt;= 0 且每一个xi∈A}          ------&gt;一元运算</li>
 </ul>
 <p>一般来说，如果把某种运算应用于一个对象集合的成员得到的对象仍在这个集合中，则称这个对象集合在该运算下封闭。</p>
-<h3 id="1-2非确定性"><a href="#1-2非确定性" class="headerlink" title="1.2	非确定性"></a>1.2	非确定性</h3><p>非确定性是确定性的推广-&gt; 因此每一台确定性有穷自动机自动地是一台非确定性有穷自动机</p>
+<h3 id="1-2非确定性">1.2	非确定性</h3>
+<p>非确定性是确定性的推广-&gt; 因此每一台确定性有穷自动机自动地是一台非确定性有穷自动机</p>
 <p>NFA与DFA的不同点：</p>
 <ol>
 <li>在NFA中，一个状态对应于字母表中的每一个符号可能有0个、1个或多个射出的箭头</li>
@@ -392,15 +404,16 @@
 <li>一般来说，NFA的箭头可以标记字母表中的符号或ε。从一个状态可能射出0个、1个或多个带有标号ε的箭头</li>
 </ol>
 <p>可以把非确定性看做是若干独立的“过程”或“线程”，即能同时运行的一类**<u>并行运算</u>**，如果这些子过程至少有一个接受，那么整个计算接受。</p>
-<h4 id="1-2-1-非确定性有穷自动机的形式化定义"><a href="#1-2-1-非确定性有穷自动机的形式化定义" class="headerlink" title="1.2.1 	非确定性有穷自动机的形式化定义"></a>1.2.1 	非确定性有穷自动机的形式化定义</h4><p>非确定性有穷自动机是一个5元组（Q，Σ，δ，q0，F）</p>
+<h4 id="1-2-1-非确定性有穷自动机的形式化定义">1.2.1 	非确定性有穷自动机的形式化定义</h4>
+<p>非确定性有穷自动机是一个5元组（Q，Σ，δ，q0，F）</p>
 <ol>
 <li>Q是一个有穷集合，称为状态集</li>
 <li>Σ是一个有穷集合，称为字母表</li>
 <li>δ：Q×（Σ∪{ε}）-&gt;（Q的幂集），是转移函数</li>
 <li>q0∈Q，是起始状态</li>
 </ol>
-<h4 id="1-2-1NFA与DFA的等价性"><a href="#1-2-1NFA与DFA的等价性" class="headerlink" title="1.2.1	NFA与DFA的等价性"></a>1.2.1	NFA与DFA的等价性</h4><blockquote>
-</blockquote>
+<h4 id="1-2-1NFA与DFA的等价性">1.2.1	NFA与DFA的等价性</h4>
+<blockquote></blockquote>
 
                     
                 </div>
@@ -542,7 +555,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E8%AF%AD%E8%A8%80"><span class="nav-text">第一部分	自动机与语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80"><span class="nav-text">第一章	正则语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1有穷自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.1 	有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.2	计算的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3%E8%AE%BE%E8%AE%A1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1.3	设计有穷自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4%E6%AD%A3%E5%88%99%E8%BF%90%E7%AE%97"><span class="nav-text">1.1.4	正则运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7"><span class="nav-text">1.2	非确定性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.2.1 	非确定性有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1NFA%E4%B8%8EDFA%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-text">1.2.1	NFA与DFA的等价性</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">第一部分	自动机与语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80"><span class="nav-text">第一章	正则语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1有穷自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.1 	有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.2	计算的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3%E8%AE%BE%E8%AE%A1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1.3	设计有穷自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4%E6%AD%A3%E5%88%99%E8%BF%90%E7%AE%97"><span class="nav-text">1.1.4	正则运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7"><span class="nav-text">1.2	非确定性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.2.1 	非确定性有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1NFA%E4%B8%8EDFA%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-text">1.2.1	NFA与DFA的等价性</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
 
@@ -714,7 +727,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86%E8%87%AA%E5%8A%A8%E6%9C%BA%E4%B8%8E%E8%AF%AD%E8%A8%80"><span class="nav-text">第一部分	自动机与语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80"><span class="nav-text">第一章	正则语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1有穷自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.1 	有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.2	计算的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3%E8%AE%BE%E8%AE%A1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1.3	设计有穷自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4%E6%AD%A3%E5%88%99%E8%BF%90%E7%AE%97"><span class="nav-text">1.1.4	正则运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7"><span class="nav-text">1.2	非确定性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.2.1 	非确定性有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1NFA%E4%B8%8EDFA%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-text">1.2.1	NFA与DFA的等价性</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">第一部分	自动机与语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%E6%AD%A3%E5%88%99%E8%AF%AD%E8%A8%80"><span class="nav-text">第一章	正则语言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1有穷自动机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.1 	有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2%E8%AE%A1%E7%AE%97%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.1.2	计算的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3%E8%AE%BE%E8%AE%A1%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA"><span class="nav-text">1.1.3	设计有穷自动机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4%E6%AD%A3%E5%88%99%E8%BF%90%E7%AE%97"><span class="nav-text">1.1.4	正则运算</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7"><span class="nav-text">1.2	非确定性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-%E9%9D%9E%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%9C%89%E7%A9%B7%E8%87%AA%E5%8A%A8%E6%9C%BA%E7%9A%84%E5%BD%A2%E5%BC%8F%E5%8C%96%E5%AE%9A%E4%B9%89"><span class="nav-text">1.2.1 	非确定性有穷自动机的形式化定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1NFA%E4%B8%8EDFA%E7%9A%84%E7%AD%89%E4%BB%B7%E6%80%A7"><span class="nav-text">1.2.1	NFA与DFA的等价性</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
 
