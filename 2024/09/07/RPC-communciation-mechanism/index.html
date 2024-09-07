@@ -9,7 +9,7 @@
     
     <title>
         
-            树莓派opencv-python踩坑记录 |
+            RPC_communciation_mechanism on TVM |
         
         Lucas-Lxb&#39;s Blog
     </title>
@@ -265,7 +265,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        树莓派opencv-python踩坑记录
+                        RPC_communciation_mechanism on TVM
                     </div>
                 
 
@@ -291,31 +291,22 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-star"></i>&nbsp;
-                <span class="datetime">2024-04-04 13:13:07</span>
+                <span class="datetime">2024-09-07 14:26:48</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-arrows-rotate"></i>&nbsp;
-                <span class="datetime" data-updated="Tue Aug 13 2024 10:45:39 GMT+0800">2024-08-13 10:45:39</span>
+                <span class="datetime" data-updated="Sat Sep 07 2024 17:15:08 GMT+0800">2024-09-07 17:15:08</span>
             </span>
         
 
-        
-            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul class="post-category-ul">
-                    
-                            <li class="category-item"><a href="/categories/%E6%8A%98%E8%85%BELinux/">折腾Linux</a></li>
-                        
-                    
-                </ul>
-            </span>
         
 
         
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></li>
                         
                     
                 </ul>
@@ -325,12 +316,12 @@
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>943 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1k 字</span>
             </span>
         
         
             <span class="meta-info-item post-min2read">
-                <i class="icon fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+                <i class="icon fas fa-clock"></i>&nbsp;<span>3 分钟</span>
             </span>
         
         
@@ -348,41 +339,52 @@
                     
 
                     
-                         <h1 id="1-’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突"><a href="#1-’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突" class="headerlink" title="1.’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突"></a>1.’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突</h1><p>修改为：安装版本为 python3.8 与 Opencv-python4.1.2.</p>
-<span id="more"></span>
+                         <h1 style="text-align: center;">    RPC通信机制 </h1>
 
-
-
-<h1 id="2-使用pip安装软件包时出现SSL验证失败问题：pip版本在20-3以上时会出现此错误"><a href="#2-使用pip安装软件包时出现SSL验证失败问题：pip版本在20-3以上时会出现此错误" class="headerlink" title="2.使用pip安装软件包时出现SSL验证失败问题：pip版本在20.3以上时会出现此错误"></a>2.使用pip安装软件包时出现SSL验证失败问题：pip版本在20.3以上时会出现此错误</h1><p>修改：</p>
-<p>法一:下载pip版本为20.2.4</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install pip==20.2.4 -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com</span><br><span class="line">python -m pip install pip==20.2.4 -i http://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com</span><br></pre></td></tr></table></figure>
-
-<p>法二：修改pip源</p>
-<p>修改为（以下任意一项） ———————–由于网速限制可能要多试几遍（我试了很多遍…….）</p>
-<ul>
-<li><pre><code>http://mirrors.aliyun.com/pypi/simple/
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  http://pypi.douban.com/simple</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
+<h1 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h1><p>RPC(remote procedure call)远程过程调用，是一种在不同计算机之间的进程间通信的机制。通过RPC，我们可以像调用本地函数一样调用远程函数，简化了分布式系统的开发和维护工作。</p>
+<h1 id="二、RPC基本原理"><a href="#二、RPC基本原理" class="headerlink" title="二、RPC基本原理"></a>二、RPC基本原理</h1><p>RPC的基本工作原理如下：</p>
+<ol>
+<li>调用方将调用请求封装成一个消息，并通过网络发送给远程服务</li>
+<li>远程服务接收到消息后，解析消息并调用相应的函数</li>
+<li>远程函数执行完毕后，将结果封装成消息并发送给调用方</li>
+<li>调用方接收到消息后，解析消息并获取结果</li>
+</ol>
+<p><img  
+                       lazyload
+                       alt="image"
+                       data-src="https://cdn.jsdelivr.net/gh/Lucas-Lxb/pictures-picgo/img/RPC%E5%8E%9F%E7%90%86.png"
+                        alt="RPC原理"
+                 ></p>
+<h1 id="三、TVM-RPC-通信-自定义RPC框架"><a href="#三、TVM-RPC-通信-自定义RPC框架" class="headerlink" title="三、TVM RPC 通信 (自定义RPC框架)"></a>三、TVM RPC 通信 (自定义RPC框架)</h1><h2 id="1-TVM-RPC通信核心组件"><a href="#1-TVM-RPC通信核心组件" class="headerlink" title="1.TVM RPC通信核心组件"></a>1.TVM RPC通信核心组件</h2><ul>
+<li>RPC Tracker : 跟踪和管理远程设备，记录每个远程设备的状态和位置</li>
+<li>RPC Server : 在远程设备上运行，接受来自客户端的请求并执行任务</li>
+<li>RPC Client : 在本地运行，用于向远程设备发送任务，并接受执行结果</li>
 </ul>
-<p>注：树莓派所安装操作系统为DeBian 11.</p>
-<h1 id="3-apt-get修改国内源（23-10-mantic版本）"><a href="#3-apt-get修改国内源（23-10-mantic版本）" class="headerlink" title="3.apt-get修改国内源（23.10 mantic版本）"></a>3.apt-get修改国内源（23.10 mantic版本）</h1><ol>
-<li></li>
+<h2 id="2-RPC通信流程"><a href="#2-RPC通信流程" class="headerlink" title="2.RPC通信流程"></a>2.RPC通信流程</h2><h3 id="（1）启动-RPC-Tracker"><a href="#（1）启动-RPC-Tracker" class="headerlink" title="（1）启动 RPC Tracker"></a>（1）启动 RPC Tracker</h3><pre><code> RPC Tracker是负责管理所有远程设备的中心节点，它会追踪已经注册的 RPC Server，并允许客户端通过Tracker定位和连接到相应的设备。
+</code></pre>
+<p>​	启动 RPC Tracker的命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m tvm.exec.rpc_tracker --host=0.0.0.0 --port=9190</span><br></pre></td></tr></table></figure>
+
+<h3 id="（2）启动-RPC-Server"><a href="#（2）启动-RPC-Server" class="headerlink" title="（2）启动 RPC Server"></a>（2）启动 RPC Server</h3><p>​	在远程设备上（如树莓派、GPU 服务器等），需要启动 RPC Server，它会注册到指定的 RPC Tracker 并等待客户端的任务请求。启动命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m tvm.exec.rpc_server --tracker=tracker_host:9190 --key=raspberry_pi</span><br></pre></td></tr></table></figure>
+
+<p>​	RPC Server会注册自身到Tracker，成为可用的设备，并接受从客户端发来的任务请求。</p>
+<h3 id="（3）-客户端连接-RPC-Tracker"><a href="#（3）-客户端连接-RPC-Tracker" class="headerlink" title="（3） 客户端连接 RPC Tracker"></a>（3） <strong>客户端连接 RPC Tracker</strong></h3><p>​	在本地机器上，客户端通过 RPC Tracker 查找和连接到远程设备（RPC Server）。客户端首先连接到 Tracker，然后通过指定的 <code>key</code> 请求连接到特定设备。</p>
+<h3 id="（4）-执行远程任务"><a href="#（4）-执行远程任务" class="headerlink" title="（4） 执行远程任务"></a>（4） <strong>执行远程任务</strong></h3><p>​	一旦客户端连接到远程设备（通过 RPC Tracker），它可以在该设备上执行远程任务，例如推理或性能调优。可以在远程设备上加载模块并运行。</p>
+<h3 id="（5）结果返回——（自动完成）"><a href="#（5）结果返回——（自动完成）" class="headerlink" title="（5）结果返回——（自动完成）"></a>（5）结果返回——（自动完成）</h3><p>​	远程设备（RPC Server）在执行完任务后，会通过网络将结果返回给本地客户端（RPC Client）。这个过程是自动完成的，客户端无需关心底层的网络传输，TVM 的 RPC 框架会处理数据的序列化、传输和反序列化。</p>
+<h2 id="3-TVM-RPC的工作原理"><a href="#3-TVM-RPC的工作原理" class="headerlink" title="3.TVM RPC的工作原理"></a>3.TVM RPC的工作原理</h2><p>TVM 的 RPC 是基于<strong>序列化、网络通信</strong>和<strong>函数调用</strong>机制构建的，其工作原理可以分为以下几个步骤：</p>
+<ol>
+<li><strong>序列化请求</strong>：当客户端请求调用远程设备上的函数时，RPC 框架会将函数名称、参数、设备标识等信息序列化为消息。</li>
+<li><strong>网络传输</strong>：这些消息通过网络发送给远程设备（RPC Server）。RPC Server 监听指定端口，接收到消息后，解析请求。</li>
+<li><strong>执行函数</strong>：RPC Server 解析出要调用的函数名称和参数，在设备上执行该函数。执行过程中使用远程设备的计算资源（如 CPU、GPU 等）。</li>
+<li><strong>序列化结果</strong>：执行完成后，RPC Server 会将结果序列化，并通过网络返回给客户端。</li>
+<li><strong>反序列化结果</strong>：客户端接收到结果后，将其反序列化为可用的 Python 对象，继续后续逻辑。</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://security.ubuntu.com/ubuntu/ mantic-security main restricted universe multiverse</span><br><span class="line"># deb-src http://security.ubuntu.com/ubuntu/ mantic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-proposed main restricted universe multiverse</span><br><span class="line"># # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ mantic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>无法获得锁：&#x2F;var&#x2F;lib&#x2F;dpkg&#x2F;lock-fronted</li>
+<h2 id="4-TVM-RPC常见的使用场景"><a href="#4-TVM-RPC常见的使用场景" class="headerlink" title="4.TVM RPC常见的使用场景"></a>4.TVM RPC常见的使用场景</h2><ol>
+<li><strong>分布式调优</strong>：利用多个远程设备的资源进行分布式自动调优，如在树莓派、GPU集群上调优模型。</li>
+<li><strong>异构计算</strong>：在不同的硬件设备（如CPU、GPU、FPGA等）上执行同一模型进行性能对比和优化。</li>
+<li><strong>远程推理</strong>：将模型部署在远程服务器或嵌入式设备上，客户端通过RPC调用远程推理服务。</li>
 </ol>
-<p>解决方案:</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /var/lib/dpkg/lock-frontend</span><br><span class="line">sudo rm /var/lib/dpkg/lock</span><br><span class="line">sudo rm /var/cache/apt/archives/lock</span><br></pre></td></tr></table></figure>
-
-<p>都运行一遍，具体也不知道哪条起了作用。</p>
-<p>出现以下错误：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Error:Could <span class="keyword">not</span> build wheels <span class="keyword">for</span> opencv-python ,which <span class="keyword">is</span> required to install pyproject.toml-based projects</span><br><span class="line">------&gt;安装poetry</span><br><span class="line">------&gt;运行poetry init命令  <span class="comment">#获得pyproject.toml文件</span></span><br><span class="line">------&gt;运行poetry install命令 <span class="comment">#得到项目内文件的依赖</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Poetry 是一个用于管理 Python 项目依赖、虚拟环境和打包发布的工具。它通过一个名为 `pyproject.toml` 的配置文件来管理项目。使用 Poetry，你可以方便地定义项目的依赖关系、版本约束和脚本命令，并且它提供了一组命令来执行各种常见任务，例如安装依赖、创建虚拟环境、构建项目等。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Poetry 是一个用于管理 Python 项目依赖、虚拟环境和打包发布的工具。它通过一个名为 pyproject.toml 的配置文件来管理项目。使用 Poetry，你可以方便地定义项目的依赖关系、版本约束和脚本命令，并且它提供了一组命令来执行各种常见任务，例如安装依赖、创建虚拟环境、构建项目等。</span><br><span class="line"></span><br><span class="line">以下是一些常用的 Poetry 命令：</span><br><span class="line"></span><br><span class="line">poetry init 是一个用于初始化 Python 项目的命令，它使用 Poetry 工具。Poetry 是一个 Python 包管理工具和项目管理工具，它可以帮助你管理项目依赖关系和构建工具。</span><br><span class="line"></span><br><span class="line"><span class="comment">#当你运行 poetry init 命令时，它会引导你完成创建一个新的 Python 项目的过程。它会询问一些问题，如项目名称、版本、作者、项目依#赖等，并生成一个 pyproject.toml 文件，用于描述你的项目和其依赖关系。</span></span><br><span class="line"></span><br><span class="line">poetry new: 创建一个新的 Python 项目。</span><br><span class="line"></span><br><span class="line">poetry install: 安装项目的依赖。</span><br><span class="line"></span><br><span class="line">poetry add: 添加新的依赖项到项目。</span><br><span class="line"></span><br><span class="line">poetry remove: 从项目中移除依赖项。</span><br><span class="line"></span><br><span class="line">poetry update: 更新项目的依赖项。</span><br><span class="line"></span><br><span class="line">poetry run: 在虚拟环境中运行项目中定义的脚本命令。</span><br><span class="line"></span><br><span class="line">poetry shell: 进入项目的虚拟环境。</span><br><span class="line"></span><br><span class="line">poetry build: 构建项目。</span><br><span class="line"></span><br><span class="line">poetry publish: 发布项目到包索引。</span><br><span class="line"></span><br><span class="line">poetry config: 配置 Poetry 的设置。</span><br></pre></td></tr></table></figure>
-
 
                     
                 </div>
@@ -393,11 +395,11 @@
     <div class="copyright-info-content border-box">
         <div class="copyright-info-top border-box">
             <div class="copyright-post-title border-box text-ellipsis">
-                树莓派opencv-python踩坑记录
+                RPC_communciation_mechanism on TVM
             </div>
 
             <div class="copyright-post-link border-box text-ellipsis">
-                2024/04/04/树莓派opencv-python踩坑记录/
+                2024/09/07/RPC-communciation-mechanism/
             </div>
         </div>
 
@@ -413,7 +415,7 @@
                 <div class="type">
                     发布于
                 </div>
-                <div class="content">2024-04-04 13:13</div>
+                <div class="content">2024-09-07 14:26</div>
             </div>
 
 
@@ -449,7 +451,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
                                     </li>
                                 
                             </ul>
@@ -488,31 +490,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/08/04/String%E7%B1%BB%E7%9A%84%E7%89%B9%E6%80%A7/"
-                                   title="String类的特性"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">String类的特性</span>
-                                        <span class="post-nav-item">上一篇</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/03/18/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E5%AF%BC%E5%BC%95/"
-                                   title="计算理论导引"
+                                   href="/2024/08/13/%E4%B8%80%E7%94%9F%E4%B8%80%E8%8A%AF/"
+                                   title="一生一芯"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">计算理论导引</span>
+                                        <span class="post-nav-title-item text-ellipsis">一生一芯</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -540,7 +526,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E2%80%99xcb%E2%80%99%E6%8F%92%E4%BB%B6%E6%A3%80%E6%B5%8B%E5%BE%97%E5%88%B0%E4%BD%86%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8A%A0%E8%BD%BD%EF%BC%9A%E5%A4%A7%E6%A6%82%E7%8E%87%E6%98%AFopencv%E4%B8%8Epython%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81"><span class="nav-text">1.’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8pip%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%97%B6%E5%87%BA%E7%8E%B0SSL%E9%AA%8C%E8%AF%81%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%EF%BC%9Apip%E7%89%88%E6%9C%AC%E5%9C%A820-3%E4%BB%A5%E4%B8%8A%E6%97%B6%E4%BC%9A%E5%87%BA%E7%8E%B0%E6%AD%A4%E9%94%99%E8%AF%AF"><span class="nav-text">2.使用pip安装软件包时出现SSL验证失败问题：pip版本在20.3以上时会出现此错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-apt-get%E4%BF%AE%E6%94%B9%E5%9B%BD%E5%86%85%E6%BA%90%EF%BC%8823-10-mantic%E7%89%88%E6%9C%AC%EF%BC%89"><span class="nav-text">3.apt-get修改国内源（23.10 mantic版本）</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">    RPC通信机制 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E8%BF%B0"><span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81RPC%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-text">二、RPC基本原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81TVM-RPC-%E9%80%9A%E4%BF%A1-%E8%87%AA%E5%AE%9A%E4%B9%89RPC%E6%A1%86%E6%9E%B6"><span class="nav-text">三、TVM RPC 通信 (自定义RPC框架)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-TVM-RPC%E9%80%9A%E4%BF%A1%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6"><span class="nav-text">1.TVM RPC通信核心组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-RPC%E9%80%9A%E4%BF%A1%E6%B5%81%E7%A8%8B"><span class="nav-text">2.RPC通信流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%90%AF%E5%8A%A8-RPC-Tracker"><span class="nav-text">（1）启动 RPC Tracker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%90%AF%E5%8A%A8-RPC-Server"><span class="nav-text">（2）启动 RPC Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5-RPC-Tracker"><span class="nav-text">（3） 客户端连接 RPC Tracker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89-%E6%89%A7%E8%A1%8C%E8%BF%9C%E7%A8%8B%E4%BB%BB%E5%8A%A1"><span class="nav-text">（4） 执行远程任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E7%BB%93%E6%9E%9C%E8%BF%94%E5%9B%9E%E2%80%94%E2%80%94%EF%BC%88%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90%EF%BC%89"><span class="nav-text">（5）结果返回——（自动完成）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-TVM-RPC%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">3.TVM RPC的工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-TVM-RPC%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">4.TVM RPC常见的使用场景</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -712,7 +698,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E2%80%99xcb%E2%80%99%E6%8F%92%E4%BB%B6%E6%A3%80%E6%B5%8B%E5%BE%97%E5%88%B0%E4%BD%86%E6%98%AF%E4%B8%8D%E5%8F%AF%E5%8A%A0%E8%BD%BD%EF%BC%9A%E5%A4%A7%E6%A6%82%E7%8E%87%E6%98%AFopencv%E4%B8%8Epython%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81"><span class="nav-text">1.’xcb’插件检测得到但是不可加载：大概率是opencv与python版本冲突</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8pip%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%97%B6%E5%87%BA%E7%8E%B0SSL%E9%AA%8C%E8%AF%81%E5%A4%B1%E8%B4%A5%E9%97%AE%E9%A2%98%EF%BC%9Apip%E7%89%88%E6%9C%AC%E5%9C%A820-3%E4%BB%A5%E4%B8%8A%E6%97%B6%E4%BC%9A%E5%87%BA%E7%8E%B0%E6%AD%A4%E9%94%99%E8%AF%AF"><span class="nav-text">2.使用pip安装软件包时出现SSL验证失败问题：pip版本在20.3以上时会出现此错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-apt-get%E4%BF%AE%E6%94%B9%E5%9B%BD%E5%86%85%E6%BA%90%EF%BC%8823-10-mantic%E7%89%88%E6%9C%AC%EF%BC%89"><span class="nav-text">3.apt-get修改国内源（23.10 mantic版本）</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">    RPC通信机制 </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E8%BF%B0"><span class="nav-text">一、概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81RPC%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-text">二、RPC基本原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81TVM-RPC-%E9%80%9A%E4%BF%A1-%E8%87%AA%E5%AE%9A%E4%B9%89RPC%E6%A1%86%E6%9E%B6"><span class="nav-text">三、TVM RPC 通信 (自定义RPC框架)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-TVM-RPC%E9%80%9A%E4%BF%A1%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6"><span class="nav-text">1.TVM RPC通信核心组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-RPC%E9%80%9A%E4%BF%A1%E6%B5%81%E7%A8%8B"><span class="nav-text">2.RPC通信流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%881%EF%BC%89%E5%90%AF%E5%8A%A8-RPC-Tracker"><span class="nav-text">（1）启动 RPC Tracker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%882%EF%BC%89%E5%90%AF%E5%8A%A8-RPC-Server"><span class="nav-text">（2）启动 RPC Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%883%EF%BC%89-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5-RPC-Tracker"><span class="nav-text">（3） 客户端连接 RPC Tracker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%884%EF%BC%89-%E6%89%A7%E8%A1%8C%E8%BF%9C%E7%A8%8B%E4%BB%BB%E5%8A%A1"><span class="nav-text">（4） 执行远程任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EF%BC%885%EF%BC%89%E7%BB%93%E6%9E%9C%E8%BF%94%E5%9B%9E%E2%80%94%E2%80%94%EF%BC%88%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90%EF%BC%89"><span class="nav-text">（5）结果返回——（自动完成）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-TVM-RPC%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-text">3.TVM RPC的工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-TVM-RPC%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">4.TVM RPC常见的使用场景</span></a></li></ol></li></ol>
     </div>
 </div>
 

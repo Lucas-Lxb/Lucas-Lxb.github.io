@@ -325,7 +325,7 @@
         
         
             <span class="meta-info-item post-wordcount">
-                <i class="icon fas fa-file-word"></i>&nbsp;<span>429 字</span>
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>428 字</span>
             </span>
         
         
@@ -348,19 +348,18 @@
                     
 
                     
-                         <h2 id="问题描述">问题描述</h2>
-<p>​	下面程序运行的结果是什么？尝试画出内存布局图。</p>
+                         <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>​	下面程序运行的结果是什么？尝试画出内存布局图。</p>
 <span id="more"></span>
+
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StringExercise02</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;lxb&quot;</span>);</span><br><span class="line">    <span class="keyword">final</span> <span class="type">char</span>[] ch = &#123;<span class="string">&#x27;j&#x27;</span>,<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;v&#x27;</span>,<span class="string">&#x27;a&#x27;</span>&#125;;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">change</span><span class="params">(String str,<span class="type">char</span> ch[])</span> &#123;</span><br><span class="line">        str = <span class="string">&quot;java&quot;</span>;</span><br><span class="line">        ch[<span class="number">0</span>] = <span class="string">&#x27;h&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">StringExercise02</span> <span class="variable">ex</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringExercise02</span>();</span><br><span class="line">        ex.change(ex.str,ex.ch); <span class="comment">//①</span></span><br><span class="line">        System.out.print(ex.str + <span class="string">&quot; and &quot;</span>);</span><br><span class="line">        System.out.println(ex.ch);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <hr>
-<h2 id="解决方法">解决方法</h2>
-<h3 id="一、方法执行时分析">一、方法执行时分析</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">change</span><span class="params">(String str,<span class="type">char</span> ch[])</span> &#123;</span><br><span class="line">        str = <span class="string">&quot;java&quot;</span>;	<span class="comment">//代码②</span></span><br><span class="line">        ch[<span class="number">0</span>] = <span class="string">&#x27;h&#x27;</span>;	<span class="comment">//代码③</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>​	在执行代码①处时，ex.str 和 <a class="link"   target="_blank" rel="noopener" href="http://ex.ch" >ex.ch<i class="fas fa-external-link-alt"></i></a> 被传递给change方法，由于二者均为引用数据类型(数组类型和String类型)，因而传入 change 方法时，会直接使得形参 str 指向ex对象的 str 和 ch 属性在堆中的地址，后开始执行该方法：</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="一、方法执行时分析"><a href="#一、方法执行时分析" class="headerlink" title="一、方法执行时分析"></a>一、方法执行时分析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">change</span><span class="params">(String str,<span class="type">char</span> ch[])</span> &#123;</span><br><span class="line">        str = <span class="string">&quot;java&quot;</span>;	<span class="comment">//代码②</span></span><br><span class="line">        ch[<span class="number">0</span>] = <span class="string">&#x27;h&#x27;</span>;	<span class="comment">//代码③</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	在执行代码①处时，ex.str 和 ex.ch 被传递给change方法，由于二者均为引用数据类型(数组类型和String类型)，因而传入 change 方法时，会直接使得形参 str 指向ex对象的 str 和 ch 属性在堆中的地址，后开始执行该方法：</p>
 <p>由于代码②处将字符串常量赋值给 str，因而会在常量池中创建 “java” 对象，并将 str 指向该处于常量池中的对象，因而上述图中的虚线断裂，箭头重新指向常量池中的 “java” ；</p>
 <p>由于 ch 并未重新赋值，而是直接在原来的基础上对原数组进行修改，因而ch的指向不改变，但是该数组的内容发生改变。</p>
-<h3 id="二、方法执行后分析">二、方法执行后分析</h3>
-<p>​	由于在执行该方法时 JVM 会在栈中创建 change 栈，在该方法执行完毕之后进行销毁，因此该方法的形参 str 和 ch 均被销毁，并返回主栈。此时 ex 对象的 str 属性并未改变，为 “lxb” ；ch 属性则发生变化，变为 “hava&quot; ,因而最终输出为 lxb and hava.</p>
+<h3 id="二、方法执行后分析"><a href="#二、方法执行后分析" class="headerlink" title="二、方法执行后分析"></a>二、方法执行后分析</h3><p>​	由于在执行该方法时 JVM 会在栈中创建 change 栈，在该方法执行完毕之后进行销毁，因此该方法的形参 str 和 ch 均被销毁，并返回主栈。此时 ex 对象的 str 属性并未改变，为 “lxb” ；ch 属性则发生变化，变为 “hava” ,因而最终输出为 lxb and hava.</p>
 
                     
                 </div>
